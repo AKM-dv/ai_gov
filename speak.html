@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Speech Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .paragraph {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .speak-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .speak-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="paragraph" id="textToSpeak">
+    AAAH AAAAH AAAAH
+        </div>
+        <button class="speak-button" onclick="speakText()">Speak</button>
+    </div>
+
+    <script>
+        function speakText() {
+            const text = document.getElementById('textToSpeak').innerText;
+            const speechSynthesisUtterance = new SpeechSynthesisUtterance(text);
+            speechSynthesisUtterance.lang = 'en-US';
+            window.speechSynthesis.speak(speechSynthesisUtterance);
+        }
+    </script>
+</body>
+</html>
